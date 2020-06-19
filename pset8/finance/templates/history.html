@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+
+
+{% endblock %}
+
+{% block main %}
+
+    <p>
+       <table style="width:100% ;border: 1px solid black;" >
+           <thead  >
+           <tr>
+           <th >
+               Symbol of stock
+           </th>
+           <th>Number of shares</th>
+           <th>Current price of stock</th>
+
+           <th>Action</th>
+           <th>Created At</th>
+           </tr>
+           </thead>
+           <tfoot>
+               <tr>
+                    <td colspan="4"></td>
+                   <td>
+                       {{cash_left}}
+                   </td>
+               </tr>
+           </tfoot>
+           <tbody>
+           <tr>
+                {% for stock in stocks %}
+               <td>
+                  {{stock["symbol"]}}
+               </td>
+               <td>
+                   {{stock.n_share}}
+               </td>
+               <td>
+                   {{stock.price_of_share | usd}}
+               </td>
+                <td>
+                     {{stock["action"]}}
+
+               </td>
+               <td>
+                   {{stock["time"]}}
+               </td>
+
+           </tr>
+           {% endfor %}
+
+
+          </tbody>
+       </table>
+
+        </p>
+{% endblock %}
