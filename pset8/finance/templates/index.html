@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+
+
+{% endblock %}
+
+{% block main %}
+
+    <p>
+       <table  style="width:100% ;border: 1px dotted black;">
+           <thead  >
+           <tr>
+           <th >
+               Symbol of stock
+           </th>
+           <th>Number of shares</th>
+           <th>Current price of stock</th>
+           <th> Action</th>
+
+           <th>Total value</th>
+           </tr>
+           </thead>
+           <tfoot>
+               <tr>
+                    <td colspan="5" ></td>
+                   <td>
+                       {{cash_left}}
+                   </td>
+               </tr>
+           </tfoot>
+           <tbody>
+           <tr>
+                {% for stock in stocks %}
+               <td>
+                  {{stock["symbol"]}}
+               </td>
+               <td>
+                   {{stock.n_share}}
+               </td>
+               <td>
+                   {{stock.price_of_share | usd}}
+               </td>
+               <td>
+                        <form action="/buy" method="post">
+                            <input type="hidden" name="symbol" value="{{ stock.symbol }}"/>
+                            <input type="number" name="shares" min="1" placeholder="0" style="width: 50px" required />
+                            <button class="btn btn-sm btn-primary" type="submit">Buy</button>
+                        </form>
+
+                        <form action="/sell" method="post">
+                            <input type="hidden" name="symbol" value="{{ stock.symbol }}"/>
+                            <input type="number" name="shares" min="1" placeholder="0" style="width: 50px" required />
+                            <button class="btn btn-sm btn-danger" type="submit">Sell</button>
+                        </form>
+                    </td>
+                <td>
+                     {{shares[stock.symbol]["price"] *stock.n_share}}
+
+               </td>
+
+           </tr>
+           {% endfor %}
+
+
+          </tbody>
+       </table>
+
+        </p>
+{% endblock %}
