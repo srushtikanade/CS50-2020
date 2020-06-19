@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Planner
+{% endblock %}
+
+{% block main %}
+
+ <b><i style="color:coral; font-size:30px">Make your day productive by setting goals.</i></b>
+            <br>
+            <br>
+<form action="/planner" method="post">
+    <input  rows size="75" autocomplete="off" autofocus class="form-control" id="task" name="task" type="text" placeholder="Task name" minlength="5"
+       maxlength="40" >
+       <br>
+       <br>
+    <input class="btn btn-success" id="submit" type="submit" disabled>
+</form>
+<div class="smart">
+<br>
+To make sure your goals are clear and reachable, each one should be:
+<br>
+Specific (simple, sensible, significant).
+<br>
+Measurable (meaningful, motivating).
+<br>
+Achievable (agreed, attainable).
+<br>
+Relevant (reasonable, realistic and resourced, results-based).
+<br>
+Time bound (time-based, time limited, time/cost limited, timely, time-sensitive).
+<br>
+</div>
+<script>
+    document.querySelector('#task').onkeyup=function(){
+        if (document.querySelector('#task').value === ''){
+            document.querySelector('#submit').disabled=true;
+        } else{
+            document.querySelector('#submit').disabled=false;
+        }
+    }
+</script>
+ {% endblock %}
