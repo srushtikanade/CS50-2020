@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    THOUGHTS
+{% endblock %}
+
+{% block main %}
+    <form action="/thoughts" method="post">
+        <div class="form-group">
+            <b><i style="color:coral; font-size:30px">WHAT'S ON YOUR MIND?</i></b>
+            <br>
+            <br>
+              <i style="color:TEAL; font-size:25px;">Jot it down right away.</i>
+
+            <br>
+            <input rows size="75" autocomplete="off" autofocus class="form-control" name="thoughts" id="thoughts" placeholder="Enter your thoughts" type="text" minlength="5"
+       maxlength="240" >
+
+                <br>
+                <i style="color:coral"> Only 240 letters.
+                <br>
+                Make sure to keep it concise yet articulate enough for you to reflect.</i>
+        </div>
+
+        <button class="btn btn-success" type="submit" id="submit" >Submit your thoughts!</button>
+    </form>
+    <script>
+    document.querySelector('#thoughts').onkeyup=function(){
+        if (document.querySelector('#thoughts').value === ''){
+            document.querySelector('#submit').disabled=true;
+        } else{
+            document.querySelector('#submit').disabled=false;
+        }
+    }
+</script>
+{% endblock %}
