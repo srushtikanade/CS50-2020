@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    CARDS
+{% endblock %}
+
+{% block main %}
+    <form action="/cards" method="post">
+        <div class="form-group">
+            <b><i style="color:coral; font-size:30px">Create study cards</i></b>
+            <br>
+            <br>
+              <i style="color:TEAL; font-size:25px;">Jot it down and revise whenever you want.</i>
+              <br>
+              <input rows size="35" autocomplete="off" autofocus class="form-control" name="topic" id="topic" placeholder="Topic of card" type="text" minlength="5"
+       maxlength="240" >
+
+                <br>
+
+            <br>
+            <input rows size="75" autocomplete="off" autofocus class="form-control" name="question" id="question" placeholder="Enter your question" type="text" minlength="5"
+       maxlength="240" >
+
+                <br>
+                <input rows size="75" autocomplete="off" autofocus class="form-control" name="answer" id="answer" placeholder="Enter the answer to above question" type="text" minlength="5"
+       maxlength="240" >
+
+                <br>
+                <i style="color:coral"> Only 240 letters.
+                <br>
+                Make sure to keep it concise yet articulate enough for you to reflect.</i>
+        </div>
+
+        <button class="btn btn-success" type="submit" id="submit" >Submit your card!</button>
+    </form>
+
+{% endblock %}
