@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    INDEX
+{% endblock %}
+
+{% block main %}
+<h class="heading1">
+      {% for user in users%}
+    An Insight into {{user.username}}'s life.
+     {% endfor %}
+
+</h>
+
+<p class="item">
+    <br>
+    <hr>
+    <div>
+        <h6><u> YOUR THOUGHTS:</u> </h6>
+    <ul>
+    {% for thought in thoughts%}
+
+   <li> On {{thought.time}} you introspected on this thought: <i class="thought"> {{thought.idea}}.</i> </li>
+    <br>
+    {% endfor %}
+ </ul>
+ </div>
+<br>
+<hr>
+ <div>
+   <h6><u>YOUR TASKS:</u> </h6>
+    <ul>
+   {% for task in tasks %}
+   <li><b>{{ task.task }}</b> created at {{ task.time}}
+
+   <button class="btn btn-success" style="font-size:7px;" type="submit" > Done</button>
+
+   </li>
+   {% endfor %}
+</ul>
+
+<a href="/planner" class="smart"><b>Create a new task</b></a>
+
+ </div>
+ <br>
+ <br>
+ <hr>
+ <div>
+     <h6> <u>YOUR CARDS: </u></h6>
+     <ul>
+
+     {% for card in cards%}
+     <li> On topic of <b> {{card.topic}}: </b>
+     <br>
+     <u>Question</u>-{{ card.question}}
+     <br>
+     <u>Answer</u>-{{card.answer}}
+     <br>
+
+     </li>
+     <br>
+     {% endfor %}
+     </ul>
+     <
+ </div>
+</p>
+{% endblock %}
