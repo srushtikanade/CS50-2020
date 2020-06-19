@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="symbol of shares" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="n_shares" placeholder="number of shares" type="number">
+
+        </div>
+        <button class="btn btn-primary" type="submit">Quote</button>
+    </form>
+{% endblock %}
+© 2020 GitHub, Inc.
