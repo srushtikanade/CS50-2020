@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<div class="border">
+    <br>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" minlength="2"
+       maxlength="8" size="8">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn btn-success" type="submit">Log In</button>
+    </form>
+    <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="des">
+        Life is too complicated not to be orderly.
+    </div>
+{% endblock %}
